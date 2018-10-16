@@ -7,6 +7,7 @@ public class TopicModelParameter {
 	public String m_source = "10PerStackOverflow"; // "amazon_movie"
 	public String m_set = "Processed";
 	public String m_topicmodel = "LDA_Variational";
+	public String m_featureGenMethod = "IG";
 	public int m_crossV = 5;
 
 	public double m_beta = 1 + 1e-3;
@@ -56,6 +57,8 @@ public class TopicModelParameter {
                 m_set = argv[i];
 			else if(argv[i-1].equals("-topicmodel"))
 				m_topicmodel = argv[i];
+			else if(argv[i-1].equals("-featureGenMethod"))
+				m_featureGenMethod = argv[i];
             else if(argv[i-1].equals("-crossV")){
                 m_crossV = Integer.valueOf(argv[i]);
             }

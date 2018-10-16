@@ -27,12 +27,12 @@ public class TUIRExecution {
 		int classNumber = 6; //Define the number of classes in this Naive Bayes.
 		int Ngram = 2; //The default value is unigram.
 		int lengthThreshold = 5; //Document length threshold
-		boolean setRandomFold = false;
+		boolean setRandomFold = true;
 		int numberOfCores = Runtime.getRuntime().availableProcessors();
 
 		String tokenModel = "./data/Model/en-token.bin";
 		String dataset = String.format("%s/%s/%s", param.m_prefix, param.m_source, param.m_set);
-		String fvFile = String.format("%s/%s/%s_features.txt", param.m_prefix, param.m_source, param.m_source);
+		String fvFile = String.format("./data/Features/fv_2gram_%s_%s_%s.txt", param.m_featureGenMethod, param.m_source, param.m_set);
 		String reviewFolder = String.format("%s/data/", dataset);
 		String outputFolder = String.format("%s/output/%dfoldsCV%s/", dataset, param.m_crossV, param.m_flag_coldstart?"Coldstart":"");
 
