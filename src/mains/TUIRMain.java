@@ -32,11 +32,11 @@ public class TUIRMain {
         String tokenModel = "./data/Model/en-token.bin";
 
         /*****parameters for topic model*****/
-        String topicmodel = "TUIR"; // CTM, LDA_Variational, TUIR, TUIR_User, TUIR_Item
-        int number_of_topics = 20;
-        int varMaxIter = 20;
+        String topicmodel = "LDA_Variational"; // CTM, LDA_Variational, TUIR, TUIR_User, TUIR_Item
+        int number_of_topics = 30;
+        int varMaxIter = 50;
         double varConverge = 1e-6;
-        int emMaxIter = 20;
+        int emMaxIter = 50;
         double emConverge = 1e-10;
 
         double alpha = 1 + 1e-2, beta = 1 + 1e-3, lambda = 1 + 1e-3;//these two parameters must be larger than 1!!!
@@ -44,21 +44,22 @@ public class TUIRMain {
 
         int topK = 50;
         int crossV = 1;
-        boolean setRandomFold = false;//whether dynamically generate folds or fix it
+        boolean setRandomFold = true;//whether dynamically generate folds or fix it
         boolean flag_coldstart = false;//whether split folds with cold start user and item
 
         /*****data setting*****/
-        String trainset = "byUser_4k_review";
-        String source = "yelp";
-        String dataset = "./myData/" + source + "/" + trainset + "/";
+        String trainset = "Processed";
+        String source = "10PerStackOverflow";
+        String dataset = "./IR_Data/" + source + "/" + trainset + "/";
         String outputFolder = String.format("%soutput/%dfoldsCV%s/", dataset, crossV, flag_coldstart?"Coldstart":"");
 
         /*****vocabulary setting*****/
-        String[] fvFiles = new String[4];
+        String[] fvFiles = new String[5];
         fvFiles[0] = "./data/Features/fv_2gram_IG_yelp_byUser_30_50_25.txt";
         fvFiles[1] = "./data/Features/fv_2gram_IG_amazon_movie_byUser_40_50_12.txt";
         fvFiles[2] = "./data/Features/fv_2gram_IG_amazon_electronic_byUser_20_20_5.txt";
         fvFiles[3] = "./data/Features/fv_2gram_IG_amazon_book_byUser_40_50_12.txt";
+        fvFiles[4] = "./data/Features/fv_2gram_IG_10PerStackOverflow_Processed.txt";
         int fvFile_point = 0;
         if(source.equals("amazon_movie")){
             fvFile_point = 1;
@@ -66,6 +67,8 @@ public class TUIRMain {
             fvFile_point = 2;
         }else if(source.equals("amazon_book")){
             fvFile_point = 3;
+        }else if(source.equals("10PerStackOverflow")){
+            fvFile_point = 4;
         }
 
         String reviewFolder = dataset + "data/"; //2foldsCV/folder0/train/, data/
