@@ -8,7 +8,7 @@ public class TopicModelParameter {
 	public String m_set = "Processed";
 	public String m_topicmodel = "LDA_Variational";
 	public String m_featureGenMethod = "IG";
-	public int m_crossV = 5;
+	public int m_crossV = 1;
 
 	public double m_beta = 1 + 1e-3;
 	public double m_alpha = 1 + 1e-2;
