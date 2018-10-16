@@ -50,7 +50,7 @@ public class TUIRMain {
         /*****data setting*****/
         String trainset = "Processed";
         String source = "10PerStackOverflow";
-        String dataset = "./IR_Data/" + source + "/" + trainset + "/";
+        String dataset = "../IR_Data/" + source + "/" + trainset + "/";
         String outputFolder = String.format("%soutput/%dfoldsCV%s/", dataset, crossV, flag_coldstart?"Coldstart":"");
 
         /*****vocabulary setting*****/

@@ -13,15 +13,15 @@ public class CVGeneration {
         int lengthThreshold = 5; //Document length threshold
         String tokenModel = "./data/Model/en-token.bin";
 
-        String trainset = "UserText";
+        String trainset = "Processed";
         String source = "10PerStackOverflow";
-        String dataset = "./IR_Data/" + source + "/" + trainset + "/" + "/50K";
+        String dataset = "../IR_Data/" + source + "/" + trainset + "/" + "/data";
 
         /**
          * generate vocabulary:
          */
         double startProb = 0.1; // Used in feature selection, the starting point of the features.
-        double endProb = 0.8; // Used in feature selection, the ending point of the features.
+        double endProb = 0.6; // Used in feature selection, the ending point of the features.
         int maxDF = 11000, minDF = 30; // Filter the features with DFs smaller than this threshold.
         String featureSelection = "DF";
 
