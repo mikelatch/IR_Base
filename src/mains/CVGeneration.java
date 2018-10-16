@@ -21,8 +21,8 @@ public class CVGeneration {
          * generate vocabulary:
          */
         double startProb = 0.1; // Used in feature selection, the starting point of the features.
-        double endProb = 0.6; // Used in feature selection, the ending point of the features.
-        int maxDF = 11000, minDF = 30; // Filter the features with DFs smaller than this threshold.
+        double endProb = 0.4; // Used in feature selection, the ending point of the features.
+        int maxDF = 9000, minDF = 90; // Filter the features with DFs smaller than this threshold.
         String featureSelection = "IG";
 
         String suffix = ".txt";
